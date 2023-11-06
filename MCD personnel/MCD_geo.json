@@ -1,0 +1,25 @@
+{
+  "width": 462,
+  "height": 213,
+  "cx": [
+    [ "APPLICATION", 64 ],
+    [ "OUVRIR", 183 ],
+    [ "EMPLOYE", 288 ],
+    [ "APPARTENIR", 407 ],
+    [ "LIGUE", 183 ]
+  ],
+  "cy": [
+    [ "APPLICATION", 60 ],
+    [ "OUVRIR", 60 ],
+    [ "EMPLOYE", 60 ],
+    [ "APPARTENIR", 60 ],
+    [ "LIGUE", 170 ]
+  ],
+  "shift": [
+    [ "OUVRIR,APPLICATION,0", 0 ],
+    [ "OUVRIR,EMPLOYE,0", 0 ],
+    [ "APPARTENIR,EMPLOYE,0", 0 ],
+    [ "APPARTENIR,LIGUE,0", 0 ]
+  ],
+  "ratio": []
+}

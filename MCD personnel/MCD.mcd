@@ -1,0 +1,6 @@
+APPLICATION: id_application, type_application
+OUVRIR, 1N APPLICATION, 0N EMPLOYE
+EMPLOYE: id_employe, habilitation, nom, prenom
+APPARTENIR, 11 EMPLOYE, 1N LIGUE
+
+LIGUE: id_ligue, nom_ligue
