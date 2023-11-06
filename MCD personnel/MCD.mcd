@@ -1,6 +1,6 @@
-APPLICATION: id_application, type_application
+APPLICATION: ID_application, type_application
 OUVRIR, 1N APPLICATION, 0N EMPLOYE
-EMPLOYE: id_employe, habilitation, nom, prenom
-APPARTENIR, 11 EMPLOYE, 11 LIGUE
+EMPLOYE: ID_employe, habilitation, nom, prenom
+APPARTENIR, 11 EMPLOYE, 1n LIGUE
 
-LIGUE: id_ligue, nom_ligue
+LIGUE: ID_ligue, nom_ligue
