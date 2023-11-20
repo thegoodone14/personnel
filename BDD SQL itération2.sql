@@ -1,4 +1,3 @@
-
 CREATE TABLE APPLICATION (
     ID_application INT PRIMARY KEY,
     type_application VARCHAR(255)
@@ -17,4 +16,3 @@ CREATE TABLE LIGUE (
     ID_ligue INT PRIMARY KEY,
     nom_ligue VARCHAR(255)
 );
-
