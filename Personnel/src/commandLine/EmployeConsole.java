@@ -7,10 +7,15 @@ import commandLineMenus.Menu;
 import commandLineMenus.Option;
 import personnel.Employe;
 
-public class EmployeConsole 
+
+
+
+public class EmployeConsole
 {
+
 	private Option afficher(final Employe employe)
 	{
+		Menu EmployeSelectionMenu = new Menu("Select un employé");
 		return new Option("Afficher l'employé", "l", () -> {System.out.println(employe);});
 	}
 
