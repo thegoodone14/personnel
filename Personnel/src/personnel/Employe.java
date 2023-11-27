@@ -16,8 +16,9 @@ public class Employe implements Serializable, Comparable<Employe>
 	private String nom, prenom, password, mail;
 	private Ligue ligue;
 	private GestionPersonnel gestionPersonnel;
+	private Localdate DateDepart, DateArrive;
 	
-	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, Localdate DateDepart,DateArrive)
 	{
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
@@ -143,6 +144,29 @@ public class Employe implements Serializable, Comparable<Employe>
 	{
 		return ligue;
 	}
+
+	public void setDateDepart(Localdate dateDepart) throws DateImpossible	{
+		if (DateArrive != null && DateDepart != null && DateArrive.isAFTER(DateDepart))
+		throw new DateImpossible();
+
+	}
+
+	public Localdate getDateDepart()	{
+		return DateDepart;
+	}
+
+	public void setDateArrive(Localdate dateDepart) throws DateImpossible	{
+		if (DateArrive != null && DateDepart != null && DateDepart.isBEFORE(DateArrive))
+		throw new DateImpossible();
+
+	}
+
+	public Localdate getDateArrive()	{
+		return DateArrive;
+	}
+
+	
+
 
 	/**
 	 * Supprime l'employe. Si celui-ci est un administrateur, le root
