@@ -42,8 +42,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 	
 	/**
-	 * Retourne vrai ssi l'employé est le root.
-	 * @return vrai ssi l'employé est le root.
+	 * Retourne vrai ssi l'employe est le root.
+	 * @return vrai ssi l'employe est le root.
 	 */
 	
 	public boolean estRoot()
@@ -52,8 +52,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 	
 	/**
-	 * Retourne le nom de l'employé.
-	 * @return le nom de l'employé. 
+	 * Retourne le nom de l'employe.
+	 * @return le nom de l'employe. 
 	 */
 	
 	public String getNom()
@@ -62,7 +62,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Change le nom de l'employé.
+	 * Change le nom de l'employe.
 	 * @param nom le nouveau nom.
 	 */
 	
@@ -72,8 +72,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Retourne le prénom de l'employé.
-	 * @return le prénom de l'employé.
+	 * Retourne le prénom de l'employe.
+	 * @return le prénom de l'employe.
 	 */
 	
 	public String getPrenom()
@@ -82,8 +82,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 	
 	/**
-	 * Change le prénom de l'employé.
-	 * @param prenom le nouveau prénom de l'employé. 
+	 * Change le prénom de l'employe.
+	 * @param prenom le nouveau prénom de l'employe. 
 	 */
 
 	public void setPrenom(String prenom)
@@ -92,8 +92,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Retourne le mail de l'employé.
-	 * @return le mail de l'employé.
+	 * Retourne le mail de l'employe.
+	 * @return le mail de l'employe.
 	 */
 	
 	public String getMail()
@@ -103,7 +103,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	
 	/**
 	 * Change le mail de l'employé.
-	 * @param mail le nouveau mail de l'employé.
+	 * @param mail le nouveau mail de l'employe.
 	 */
 
 	public void setMail(String mail)
@@ -113,10 +113,10 @@ public class Employe implements Serializable, Comparable<Employe>
 
 	/**
 	 * Retourne vrai ssi le password passé en paramètre est bien celui
-	 * de l'employé.
+	 * de l'employe.
 	 * @return vrai ssi le password passé en paramètre est bien celui
-	 * de l'employé.
-	 * @param password le password auquel comparer celui de l'employé.
+	 * de l'employe.
+	 * @param password le password auquel comparer celui de l'employe.
 	 */
 	
 	public boolean checkPassword(String password)
@@ -125,8 +125,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Change le password de l'employé.
-	 * @param password le nouveau password de l'employé. 
+	 * Change le password de l'employe.
+	 * @param password le nouveau password de l'employe. 
 	 */
 	
 	public void setPassword(String password)
@@ -135,8 +135,8 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Retourne la ligue à laquelle l'employé est affecté.
-	 * @return la ligue à laquelle l'employé est affecté.
+	 * Retourne la ligue à laquelle l'employe est affecté.
+	 * @return la ligue à laquelle l'employe est affecté.
 	 */
 	
 	public Ligue getLigue()
@@ -145,7 +145,7 @@ public class Employe implements Serializable, Comparable<Employe>
 	}
 
 	/**
-	 * Supprime l'employé. Si celui-ci est un administrateur, le root
+	 * Supprime l'employe. Si celui-ci est un administrateur, le root
 	 * récupère les droits d'administration sur sa ligue.
 	 */
 	
