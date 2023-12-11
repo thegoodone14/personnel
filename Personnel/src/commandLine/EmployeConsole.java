@@ -8,8 +8,6 @@ import commandLineMenus.Option;
 import personnel.Employe;
 
 
-
-
 public class EmployeConsole
 {
 
