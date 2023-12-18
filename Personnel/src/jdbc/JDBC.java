@@ -94,13 +94,13 @@ public class JDBC implements Passerelle
 	public int insert(Employe employe) throws SauvegardeImpossible 
 	{
 		try {
-			System.out.println("HELLLO STP FONCTIONNE, TEst Insert Employe");
+			System.out.println(" TEst Insert Employe");
 			Date dateArriveeSQL = Date.valueOf(employe.getDateArrivee());
 			Date dateDepartSQL = Date.valueOf(employe.getDateDepart());
 			PreparedStatement instruction;
-			System.out.println("HELLLO STP FONCTIONNE");
+			System.out.println("Test1");
 			instruction = connection.prepareStatement("insert into employe (Nom, Prenom, Mdp, Date_Arrivee, Date_Depart, Mail) values(?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
-			System.out.println("HELLLO STP FONCTIONNE");
+			System.out.println("Test2Emp");
 			instruction.setString(1, employe.getNom());
 			instruction.setString(2, employe.getPrenom());
 			instruction.setString(3, employe.getPassword());
@@ -108,9 +108,9 @@ public class JDBC implements Passerelle
 			instruction.setDate(5, dateDepartSQL);
 			instruction.setString(6, employe.getMail());
 			instruction.executeUpdate();
-			System.out.println("HELLLO STP FONCTIONNE");
+			System.out.println("TestOk");
 			ResultSet id = instruction.getGeneratedKeys();
-			System.out.println("HELLLO STP FONCTIONNE");
+			System.out.println("TestOK");
 			id.next();
 			return id.getInt(1);
 		 }
