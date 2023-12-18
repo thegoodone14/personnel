@@ -68,6 +68,9 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Retourne le nom de l'employe.
 	 * @return le nom de l'employe. 
 	 */
+	public String getPassword() {
+		return password;
+	}
 	
 	public int getID()
 	{
