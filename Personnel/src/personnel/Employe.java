@@ -1,6 +1,9 @@
 package personnel;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import personnel.ExceptionArrivee;
+import personnel.ExceptionDepart;
 
 /**
  * Employé d'une ligue hébergée par la M2L. Certains peuvent 
@@ -16,9 +19,11 @@ public class Employe implements Serializable, Comparable<Employe>
 	private String nom, prenom, password, mail;
 	private Ligue ligue;
 	private GestionPersonnel gestionPersonnel;
-	private Localdate DateDepart, DateArrive;
+	private LocalDate dateArrivee = LocalDate.of(0000, 1, 1);
+	private LocalDate dateDepart = LocalDate.of(0000, 1, 1);
+	private int id;
 	
-	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, Localdate DateDepart,DateArrive)
+	Employe(GestionPersonnel gestionPersonnel, Ligue ligue, String nom, String prenom, String mail, String password, LocalDate dateDepart, LocalDate dateArrive)
 	{
 		this.gestionPersonnel = gestionPersonnel;
 		this.nom = nom;
@@ -26,6 +31,13 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.password = password;
 		this.mail = mail;
 		this.ligue = ligue;
+		try {
+			this.id = gestionPersonnel.insert(this);
+			}
+			catch(SauvegardeImpossible e) 
+			{
+				e.printStackTrace();
+			}
 	}
 	
 	/**
@@ -56,6 +68,16 @@ public class Employe implements Serializable, Comparable<Employe>
 	 * Retourne le nom de l'employe.
 	 * @return le nom de l'employe. 
 	 */
+	
+	public int getID()
+	{
+		return id;
+	}
+	
+	public GestionPersonnel getGestionPersonnel()
+	{
+		return gestionPersonnel;
+	}
 	
 	public String getNom()
 	{
@@ -144,34 +166,6 @@ public class Employe implements Serializable, Comparable<Employe>
 	{
 		return ligue;
 	}
-
-	public void setDateDepart(Localdate dateDepart) throws DateImpossible	{
-		if (DateArrive != null && DateDepart != null && DateArrive.isAFTER(DateDepart))
-		throw new DateImpossible();
-
-	}
-
-	public Localdate getDateDepart()	{
-		return DateDepart;
-	}
-
-	public void setDateArrive(Localdate dateDepart) throws DateImpossible	{
-		if (DateArrive != null && DateDepart != null && DateDepart.isBEFORE(DateArrive))
-		throw new DateImpossible();
-
-	}
-
-	public Localdate getDateArrive()	{
-		return DateArrive;
-	}
-
-	
-
-
-	/**
-	 * Supprime l'employe. Si celui-ci est un administrateur, le root
-	 * récupère les droits d'administration sur sa ligue.
-	 */
 	
 	public void remove()
 	{
@@ -195,6 +189,49 @@ public class Employe implements Serializable, Comparable<Employe>
 		return getPrenom().compareTo(autre.getPrenom());
 	}
 	
+	//Getter de DateArrivee
+	public LocalDate getDateArrivee() {
+        return dateArrivee;
+    }
+	
+	//Getter de DateDepart
+    public LocalDate getDateDepart() {
+        return dateDepart;
+    }
+    
+	//Setter pour datearrivee
+    public void setDateArrivee(LocalDate dateArrivee) throws ExceptionArrivee{
+    		if( (dateDepart != null) && (dateArrivee.isBefore(dateDepart) ) )
+    		{
+    			throw new ExceptionArrivee();
+    		}
+    		this.dateArrivee = dateArrivee;
+    		try {
+    			gestionPersonnel.update(this);
+    		}
+    		catch (SauvegardeImpossible e)
+    		{
+    			e.printStackTrace();
+    		}
+    		
+    }
+    
+    //Setter pour datedepart
+    public void setDateDepart(LocalDate dateDepart) throws ExceptionDepart {
+    	if( (dateArrivee != null) && (dateDepart.isAfter(dateArrivee) ) )
+		{
+			throw new ExceptionDepart();
+		}
+        this.dateDepart = dateDepart;
+        try {
+			gestionPersonnel.update(this);
+		}
+		catch (SauvegardeImpossible e)
+		{
+			e.printStackTrace();
+		}
+    }
+    
 	@Override
 	public String toString()
 	{
