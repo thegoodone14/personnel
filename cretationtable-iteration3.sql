@@ -2,27 +2,26 @@ CREATE DATABASE IF NOT EXISTS  m2l;
 
 USE m2l;
 
-CREATE TABLE IF NOT EXISTS superadmin (
-    superadmin_id INT AUTO_INCREMENT PRIMARY KEY,
-    designation VARCHAR(50) NOT NULL
-);
+DROP TABLE IF EXISTS employe;
+DROP TABLE IF EXISTS ligue;
 
-CREATE TABLE IF NOT EXISTS ligue (
-  id_ligue INT AUTO_INCREMENT,
-  nom_ligue VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id_ligue));
 
-CREATE TABLE IF NOT EXISTS employe (
-  id_emp INT AUTO_INCREMENT,
-  nom_emp VARCHAR(45) NOT NULL,
-  prenom_emp VARCHAR(45) NOT NULL,
-  mail_emp VARCHAR(255) NOT NULL,
-  password_emp VARCHAR(255) NOT NULL,
-  date_arrive DATE,
-  date_depart DATE,
-  superadmin_id INT,
-  id_ligue INT NULL,
-  PRIMARY KEY (id_emp),
-    FOREIGN KEY (id_ligue)REFERENCES ligue(id_ligue),
-     FOREIGN KEY (superadmin_id)REFERENCES superadmin(superadmin_id)
-);
+CREATE TABLE ligue(
+    Id_Ligue INT NOT NULL AUTO_INCREMENT,
+    Nom_Ligue VARCHAR(40),
+    PRIMARY KEY (Id_Ligue)
+)ENGINE = INNODB;
+
+
+CREATE TABLE employe(
+    User_Id INT NOT NULL AUTO_INCREMENT,
+    Id_Ligue INT,
+    Nom VARCHAR(25),
+    Prenom VARCHAR(25),
+    Mdp VARCHAR (50),
+    Date_Arrivee DATE,
+    Date_Depart DATE,
+    Mail VARCHAR(25),
+    PRIMARY KEY (User_Id),
+    FOREIGN KEY (Id_Ligue) REFERENCES Ligue (Id_Ligue)
+)ENGINE = INNODB;
